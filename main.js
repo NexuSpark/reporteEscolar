@@ -25,4 +25,15 @@ document.addEventListener("DOMContentLoaded", () => {
     content += "</tbody></table>";
     container.innerHTML = content;
   });
+
+  showAverage.addEventListener("click", (event) => {
+    event.preventDefault();
+    let total = 0;
+    let average;
+    for (let i = 0; i < grades.length; i++) {
+      total += grades[i][1];
+    }
+    average = total / grades.length;
+    container.innerHTML = `<p>El promedio de las calificaciones es: ${average}</p>`;
+  });
 });
