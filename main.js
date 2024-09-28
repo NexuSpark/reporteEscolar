@@ -34,6 +34,22 @@ document.addEventListener("DOMContentLoaded", () => {
       total += grades[i][1];
     }
     average = total / grades.length;
-    container.innerHTML = `<p>El promedio de las calificaciones es: ${average}</p>`;
+    container.innerHTML = `<p>El promedio de las calificaciones es: ${average}.</p>`;
   });
+
+  showHighScore.addEventListener("click", (event) => {
+    event.preventDefault();
+    let max = 0;
+    let subject;
+    let i = grades.length - 1;
+    while (i >= 0) {
+      if (grades[i][1] > max) {
+        max = grades[i][1];
+        subject = grades[i][0];
+      }
+      i--;
+    }
+    container.innerHTML = `<p>La mejor calificación fue: ${max} en ${subject}.</p>`;
+  });
+
 });
