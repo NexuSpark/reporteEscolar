@@ -52,4 +52,20 @@ document.addEventListener("DOMContentLoaded", () => {
     container.innerHTML = `<p>La mejor calificación fue: ${max} en ${subject}.</p>`;
   });
 
+  showIfFailingGrades.addEventListener("click", (event) => {
+    event.preventDefault();
+    let hasFailingGrades = false;
+    let i = 0;
+    do {
+      if (grades[i][1] < 6) {
+        hasFailingGrades = true;
+        break;
+      }
+    } while (++i < grades.length);
+    if (hasFailingGrades) {
+      container.innerHTML = "<p>Estudiante tiene aplazos.</p>";
+    } else {
+      container.innerHTML = "<p>Estudiante no tiene aplazos.</p>";
+    }
+  });
 });
